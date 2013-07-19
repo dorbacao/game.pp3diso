@@ -1,0 +1,154 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Pr&eacute;lude Prod - Exemple B - plugin jQuery : pp3Diso</title>
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="language" content="fr" />
+<meta name="robots" content="all" />
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
+<link href="css/pp3diso.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="script/jquery.pp3Diso.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="ppISO">
+	<div id="loupe-plus" class="pp3diso_users"><a href="javascript:zoom_plus();"><img src="images/loupe-plus.png" width="44" height="45" alt="" /></a></div>
+	<div id="loupe-moins" class="pp3diso_users"><a href="javascript:zoom_moins();"><img src="images/loupe-moins.png" width="44" height="45" alt="" /></a></div>
+	<div id="pp3diso-fleche-s" class="pp3diso_users fleche"></div>
+	<div id="pp3diso-fleche-n" class="pp3diso_users fleche"></div>
+	<div id="pp3diso-fleche-e" class="pp3diso_users fleche"></div>
+	<div id="pp3diso-fleche-o" class="pp3diso_users fleche"></div>
+	
+	<div id="pp3diso-fleche-se" class="pp3diso_users fleche"></div>
+	<div id="pp3diso-fleche-ne" class="pp3diso_users fleche"></div>
+	<div id="pp3diso-fleche-so" class="pp3diso_users fleche"></div>
+	<div id="pp3diso-fleche-no" class="pp3diso_users fleche"></div>
+</div>
+<div id="infos">-</div>
+<script type="text/JavaScript">
+<!--
+var ppmap;
+var zoom = 1;
+window.onload = function() {
+	ppmap = $('#ppISO').pp3Diso({
+		map:'02,2,02,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01:01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01',		// la map
+		mapId:1,				// id de la map
+		tx:182,					// dimension x des tuiles
+		ty:92,					// dimension y des tuiles
+		prefix:'map-',
+		auto_size:false,
+		mousewheel:true,
+		onenterbuilding:function(x, y, id) {	//--- la souris passe sur un batiment
+			gestion_batiment(x, y, id);
+		},
+		onleavebuilding:function(x, y, id) {	//--- la souris sort d'un batiment
+			gestion_tip_off(x, y, id);
+		}
+	});
+	ppmap.moveMapOn();
+	ppmap.moveTo(12, 10);
+	ppmap.cursor('images/cursor-on.png', 'images/cursor-off.png', 0, 0);
+	
+	ppmap.addObject(10, 10, 'images/tree-1.png', 50, -20);
+	ppmap.addObject(11, 10, 'images/tree-1.png', 50, -20);
+	ppmap.addObject(12, 10, 'images/tree-1.png', 50, -20);
+	ppmap.addObject(10, 11, 'images/tree-2.png', 50, -20);
+	ppmap.addObject(11, 11, 'images/tree-1.png', 50, -20);
+	ppmap.addObject(10, 8, 'images/tree-2.png', 50, -20);
+	
+	ppmap.addBuilding(12, 11, 'images/batiment-5.png', 0, 0);
+	ppmap.addBuilding(13, 11, 'images/batiment-5.png', 0, 0);
+	ppmap.addBuilding(10, 9, 'images/batiment-1.png', 0, -20);
+	
+	ppmap.addBuilding(13, 9, 'images/batiment-2.png', 0, -30);
+	ppmap.addBuilding(12, 9, 'images/batiment-3.png', 40, -50);
+	ppmap.addBuilding(13, 10, 'images/batiment-3.png', 40, -50);
+	ppmap.addBuilding(14, 9, 'images/batiment-3.png', 40, -50);
+	ppmap.addBuilding(13, 8, 'images/batiment-3.png', 40, -50);
+}
+
+function gestion_batiment(x, y, idMap) {
+	var id = 'b_' + y + '_' + x;
+	var src = $('#' + id + ' img').attr('src');
+	var type = src.substr(src.length-5, 1);
+	if(type==5) {
+		titre = 'Champs';
+		msg = "Plantations diverses : maïs, blé, ... De quoi nourrir tous les villageois.";
+	}else if(type==1) {
+		titre = 'Campement des archers';
+		msg = "C'est ici que les archers peuvent s'entraîner.";
+	}else if(type==2) {
+		titre = 'Lieu de repos';
+		msg = "Ce lieu permet aux guerriers de se reposer après une bataille. Le calme y est assuré par des gardes et des tours.";
+	}else if(type==3) {
+		titre = 'Tour de garde';
+		msg = "Permet de protéger un bâtiment efficacement.";
+	}
+	ppmap.tipShow('<strong>'+titre+'</strong><br /><img src="'+src+'" style="float:right;margin:0 0 5px 5px" alt="" />'+msg+'', 1, -10, 10);
+}
+
+function gestion_tip_off(x, y, idMap) {
+	ppmap.tipHide();
+}
+
+function zoom_plus() {
+	zoom += 0.5;
+	if(zoom > 5) zoom = 5;
+	ppmap.zoomMap(zoom);
+}
+function zoom_moins() {
+	zoom -= 0.5;
+	if(zoom < 0.5) zoom = 0.5;
+	ppmap.zoomMap(zoom);
+}
+
+// --> </script>
+<div class="copyright">pp3Diso : <a href="http://www.prelude-prod.fr/demo/pp3diso/">www.prelude-prod.fr/demo/pp3diso/</a><br />
+Les images de cette d&eacute;monstration proviennent du jeu Age Of Empire.</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6214128-21']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+
+function addLinkerEvents() {
+	var as = document.getElementsByTagName("a"); 
+ 
+	var extDoc = [".mp3",".doc",".xls",".exe",".zip",".pdf",".rar"]; 
+ 
+        for(var i=0; i<as.length; i++) {
+		var flag = 0;
+		var tmp = as[i].getAttribute("onclick");
+
+		if (tmp != null) {
+		  tmp = String(tmp);
+		  if (tmp.indexOf('urchinTracker') > -1 || tmp.indexOf('_trackPageview') > -1) continue;
+    		}
+ 
+                 for (var j=0; j<extDoc.length; j++) {
+			if (as[i].href.indexOf(extDoc[j]) != -1) {
+				as[i].onclick = function(){ var splitResult = this.href.split('/'); _gaq.push(['_trackPageview','/downloads/' +splitResult[splitResult.length-1]])+ ";"+((tmp != null) ? tmp+";" : "");}
+				break;
+			}
+		}
+ 
+         }
+}
+addLinkerEvents();
+
+</script></body>
+</html>
